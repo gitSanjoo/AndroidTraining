@@ -42,4 +42,13 @@ public class Restaurant {
     }
 
     public void addCuisines(List<Cuisine> cuisines){this.cuisines.addAll(cuisines);}
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "restaurantName='" + restaurantName + '\'' +
+                ", contactNumber=" + contactNumber +
+                ", cuisines=" + cuisines +
+                '}';
+    }
 }

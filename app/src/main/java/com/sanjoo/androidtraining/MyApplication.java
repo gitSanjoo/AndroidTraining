@@ -8,7 +8,12 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        DataProvider.createMenus();
-        Log.d("menuItems",DataProvider.getMenus().toString());
+        DefaultRestaurantDataProvider.createAllMenuItems();
+        Log.d("menuItems", DefaultRestaurantDataProvider.getMenus().toString());
+        DefaultRestaurantDataProvider.createDefaultCuisines();
+        Log.d("cuisineItems", DefaultRestaurantDataProvider.getCuisines().toString());
+        DefaultRestaurantDataProvider.createRestaurants();
+        Log.d("restaurants", DefaultRestaurantDataProvider.getRestaurants().toString());
+
     }
 }

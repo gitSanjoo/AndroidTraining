@@ -1,5 +1,7 @@
 package com.sanjoo.androidtraining.models;
 
+import com.sanjoo.androidtraining.Enum.RestaurantType;
+
 import java.util.List;
 
 public class Cuisine {
@@ -36,5 +38,11 @@ public class Cuisine {
         this.menuItems.addAll(menuItems);
     }
 
-
+    @Override
+    public String toString() {
+        return "Cuisine{" +
+                "name='" + name + '\'' +
+                ", menuItems=" + menuItems +
+                '}';
+    }
 }

@@ -1,15 +1,20 @@
 package com.sanjoo.androidtraining.models;
 
+import com.sanjoo.androidtraining.Enum.CuisineType;
+
 public class MenuItem {
 
     private String itemName;
     private int itemImage;
     private float itemPrice;
 
-    public MenuItem(String itemName, int itemImage, float itemPrice) {
+    private CuisineType cuisineType;
+
+    public MenuItem(String itemName, int itemImage, float itemPrice, CuisineType cuisineType) {
         this.itemName = itemName;
         this.itemImage = itemImage;
         this.itemPrice = itemPrice;
+        this.cuisineType=cuisineType;
     }
 
     public String getItemName() {
@@ -36,12 +41,21 @@ public class MenuItem {
         this.itemPrice = itemPrice;
     }
 
+    public CuisineType getCuisineType() {
+        return cuisineType;
+    }
+
+    public void setCuisineType(CuisineType cuisineType) {
+        this.cuisineType = cuisineType;
+    }
+
     @Override
     public String toString() {
         return "MenuItem{" +
                 "itemName='" + itemName + '\'' +
                 ", itemImage=" + itemImage +
                 ", itemPrice=" + itemPrice +
+                ", cuisineType=" + cuisineType +
                 '}';
     }
 }
