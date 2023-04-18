@@ -7,7 +7,8 @@ import com.sanjoo.androidtraining.models.Restaurant;
 
 import java.util.ArrayList;
 
-public class DefaultRestaurantDataProvider {        //means every restaurant has every cuisine, every cuisine has every menu item
+public class DefaultRestaurantDataProvider {
+    //means every restaurant has every cuisine, every cuisine has every menu item
 
     private static ArrayList<MenuItem> menus = new ArrayList<>();
     private static ArrayList<Cuisine> cuisines = new ArrayList<>();
@@ -22,6 +23,14 @@ public class DefaultRestaurantDataProvider {        //means every restaurant has
         menus.add(sambar);
         MenuItem pizza=new MenuItem("Pizza",R.drawable.italian,150,CuisineType.ITALIAN);
         menus.add(pizza);
+    }
+    private static long count=menus.stream().count();
+    private static MenuItem menuItem;
+    public static MenuItem getAllMenuItem(){
+        for(MenuItem menuItem1:menus) {
+            return menuItem1;
+        }
+        return menuItem;
     }
 
     public static void createDefaultCuisines(){             //return all cuisine types include ALL OF the typed menu items
@@ -60,7 +69,6 @@ public class DefaultRestaurantDataProvider {        //means every restaurant has
         restaurants.add(oyster);
 
     }
-
 
     public static ArrayList<MenuItem> getMenus() {
         return menus;
