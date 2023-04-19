@@ -31,6 +31,9 @@ public class AllMenuListAdapter extends RecyclerView.Adapter<AllMenuListAdapter.
     @Override
     public void onBindViewHolder(@NonNull AllMenuListViewHolder holder, int position) {
 
+        holder.menuItemImageView.setImageResource(menuItems.get(position).getItemImage());
+        holder.menuNameView.setText( menuItems.get(position).getItemName());
+        holder.menuPriceView.setText(String.valueOf(menuItems.get(position).getItemPrice()));
     }
 
     @Override

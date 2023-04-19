@@ -15,7 +15,7 @@ public class DefaultRestaurantDataProvider {
     private static ArrayList<Restaurant> restaurants = new ArrayList<>();
 
     public static void createAllMenuItems(){
-        MenuItem dosa= new MenuItem("Dosa", R.drawable.ic_launcher_background,80.00F, CuisineType.SOUTH_INDIAN);
+        MenuItem dosa= new MenuItem("Dosa", R.drawable.south_indian,80.00F, CuisineType.SOUTH_INDIAN);
         menus.add(dosa);
         MenuItem idli=new MenuItem("Idli",R.drawable.south_indian,70,CuisineType.SOUTH_INDIAN);
         menus.add(idli);
@@ -23,6 +23,9 @@ public class DefaultRestaurantDataProvider {
         menus.add(sambar);
         MenuItem pizza=new MenuItem("Pizza",R.drawable.italian,150,CuisineType.ITALIAN);
         menus.add(pizza);
+        MenuItem chaw_mein=new MenuItem("Chaw Mein",R.drawable.chinese,56,CuisineType.CHINESE);
+        menus.add(chaw_mein);
+        MenuItem pratha=new MenuItem("Pratha",R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
     }
     private static long count=menus.stream().count();
     private static MenuItem menuItem;
