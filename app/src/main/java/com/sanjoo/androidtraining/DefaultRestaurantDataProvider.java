@@ -26,6 +26,20 @@ public class DefaultRestaurantDataProvider {
         MenuItem chaw_mein=new MenuItem("Chaw Mein",R.drawable.chinese,56,CuisineType.CHINESE);
         menus.add(chaw_mein);
         MenuItem pratha=new MenuItem("Pratha",R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
+        menus.add(pratha);
+        MenuItem pizza3=new MenuItem("Pizza",R.drawable.italian,150,CuisineType.ITALIAN);
+        menus.add(pizza3);
+        MenuItem chaw_mein1=new MenuItem("Chaw Mein",R.drawable.chinese,56,CuisineType.CHINESE);
+        menus.add(chaw_mein1);
+        MenuItem pratha1=new MenuItem("Pratha",R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
+        menus.add(pratha1);
+        MenuItem pizza1=new MenuItem("Pizza",R.drawable.italian,150,CuisineType.ITALIAN);
+        menus.add(pizza1);
+        MenuItem chaw_mein2=new MenuItem("Chaw Mein",R.drawable.chinese,56,CuisineType.CHINESE);
+        menus.add(chaw_mein2);
+        MenuItem pratha2=new MenuItem("Pratha",R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
+        menus.add(pratha2);
+
     }
     private static long count=menus.stream().count();
     private static MenuItem menuItem;
