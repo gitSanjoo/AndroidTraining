@@ -4,6 +4,7 @@ import com.sanjoo.androidtraining.Enum.CuisineType;
 import com.sanjoo.androidtraining.models.Cuisine;
 import com.sanjoo.androidtraining.models.MenuItem;
 import com.sanjoo.androidtraining.models.Restaurant;
+import com.sanjoo.androidtraining.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -15,30 +16,30 @@ public class DefaultRestaurantDataProvider {
     private static ArrayList<Restaurant> restaurants = new ArrayList<>();
 
     public static void createAllMenuItems(){
-        MenuItem dosa= new MenuItem("Dosa", R.drawable.south_indian,80.00F, CuisineType.SOUTH_INDIAN);
+        MenuItem dosa= new MenuItem(Constants.MENU_NAME_DOSA, R.drawable.south_indian,80.00F, CuisineType.SOUTH_INDIAN);
         menus.add(dosa);
-        MenuItem idli=new MenuItem("Idli",R.drawable.south_indian,70,CuisineType.SOUTH_INDIAN);
+        MenuItem idli=new MenuItem(Constants.MENU_NAME_IDLI,R.drawable.south_indian,70,CuisineType.SOUTH_INDIAN);
         menus.add(idli);
-        MenuItem sambar=new MenuItem("Sambar",R.drawable.south_indian,40,CuisineType.SOUTH_INDIAN);
+        MenuItem sambar=new MenuItem(Constants.MENU_NAME_SAMBAR,R.drawable.south_indian,40,CuisineType.SOUTH_INDIAN);
         menus.add(sambar);
-        MenuItem pizza=new MenuItem("Pizza",R.drawable.italian,150,CuisineType.ITALIAN);
+        MenuItem pizza=new MenuItem(Constants.MENU_NAME_PIZZA,R.drawable.italian,150,CuisineType.ITALIAN);
         menus.add(pizza);
-        MenuItem chaw_mein=new MenuItem("Chaw Mein",R.drawable.chinese,56,CuisineType.CHINESE);
+        MenuItem chaw_mein=new MenuItem(Constants.MENU_NAME_CHAW_MINE,R.drawable.chinese,56,CuisineType.CHINESE);
         menus.add(chaw_mein);
-        MenuItem pratha=new MenuItem("Pratha",R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
+        MenuItem pratha=new MenuItem(Constants.MENU_NAME_PRATHA,R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
         menus.add(pratha);
-        MenuItem pizza3=new MenuItem("Pizza",R.drawable.italian,150,CuisineType.ITALIAN);
-        menus.add(pizza3);
-        MenuItem chaw_mein1=new MenuItem("Chaw Mein",R.drawable.chinese,56,CuisineType.CHINESE);
-        menus.add(chaw_mein1);
-        MenuItem pratha1=new MenuItem("Pratha",R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
-        menus.add(pratha1);
-        MenuItem pizza1=new MenuItem("Pizza",R.drawable.italian,150,CuisineType.ITALIAN);
-        menus.add(pizza1);
-        MenuItem chaw_mein2=new MenuItem("Chaw Mein",R.drawable.chinese,56,CuisineType.CHINESE);
-        menus.add(chaw_mein2);
-        MenuItem pratha2=new MenuItem("Pratha",R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
-        menus.add(pratha2);
+        MenuItem ribollita=new MenuItem(Constants.MENU_NAME_RIBOLLITA,R.drawable.italian,150,CuisineType.ITALIAN);
+        menus.add(ribollita);
+        MenuItem noodles=new MenuItem(Constants.MENU_NAME_NOODLES,R.drawable.chinese,56,CuisineType.CHINESE);
+        menus.add(noodles);
+        MenuItem sahiPaneer=new MenuItem(Constants.MENU_NAME_SAHI_PANEER,R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
+        menus.add(sahiPaneer);
+        MenuItem polenta=new MenuItem(Constants.MENU_NAME_POLENTA,R.drawable.italian,150,CuisineType.ITALIAN);
+        menus.add(polenta);
+        MenuItem jiangsu=new MenuItem(Constants.MENU_NAME_JIANGSU,R.drawable.chinese,56,CuisineType.CHINESE);
+        menus.add(jiangsu);
+        MenuItem salad=new MenuItem(Constants.MENU_NAME_SALAD,R.drawable.north_indian,45,CuisineType.NORTH_INDIAN);
+        menus.add(salad);
 
     }
     private static long count=menus.stream().count();
@@ -51,15 +52,17 @@ public class DefaultRestaurantDataProvider {
     }
 
     public static void createDefaultCuisines(){             //return all cuisine types include ALL OF the typed menu items
-        Cuisine southIndian=new Cuisine("South Indian",new ArrayList<MenuItem>(),R.drawable.south_indian);
+        Cuisine southIndian=new Cuisine(Constants.CUISINE_NAME_SOUTH_INDIAN,new ArrayList<MenuItem>(),R.drawable.south_indian);
         southIndian.addMenuItems(getAllSpecificMenuItems(CuisineType.SOUTH_INDIAN));
         cuisines.add(southIndian);
-        Cuisine italian=new Cuisine("Italian",new ArrayList<MenuItem>(),R.drawable.italian);
+        Cuisine italian=new Cuisine(Constants.CUISINE_NAME_ITALIAN,new ArrayList<MenuItem>(),R.drawable.italian);
         italian.addMenuItems(getAllSpecificMenuItems(CuisineType.ITALIAN));
         cuisines.add(italian);
-        Cuisine italian1=new Cuisine("Italian",R.drawable.italian);
-        cuisines.add(italian1);
-        Cuisine chinese=new Cuisine("Chinese",R.drawable.chinese);
+        Cuisine northIndian=new Cuisine(Constants.CUISINE_NAME_NORTH_INDIAN,new ArrayList<MenuItem>(),R.drawable.italian);
+        northIndian.addMenuItems(getAllSpecificMenuItems(CuisineType.NORTH_INDIAN));
+        cuisines.add(northIndian);
+        Cuisine chinese=new Cuisine(Constants.CUISINE_NAME_CHINESE,new ArrayList<MenuItem>(),R.drawable.chinese);
+        chinese.addMenuItems(getAllSpecificMenuItems(CuisineType.CHINESE));
         cuisines.add(chinese);
 
 
@@ -86,14 +89,38 @@ public class DefaultRestaurantDataProvider {
     public static void createRestaurants(){
         ArrayList<Cuisine> oldRaoCuisines=new ArrayList<>();
         for (Cuisine cuisine:cuisines){
-            if (cuisine.getName().equals("Chinese") || cuisine.getName().equals("Italian")){
+            if (cuisine.getName().equals(Constants.CUISINE_NAME_CHINESE) || cuisine.getName().equals(Constants.CUISINE_NAME_NORTH_INDIAN)){
                 oldRaoCuisines.add(cuisine);
             }
         }
-        Restaurant oldRao=new Restaurant("Old Rao",454332,oldRaoCuisines);
+
+        ArrayList<Cuisine> oysterCuisines=new ArrayList<>();
+        for (Cuisine cuisine:cuisines){
+            if(cuisine.getName().equals(Constants.CUISINE_NAME_CHINESE)){
+                oysterCuisines.add(cuisine);
+            }
+        }
+
+        ArrayList<Cuisine> leArabiaCuisines=new ArrayList<>();
+        for (Cuisine cuisine:cuisines){
+            if(cuisine.getName().equals(Constants.CUISINE_NAME_ITALIAN) || cuisine.getName().equals(Constants.CUISINE_NAME_CHINESE)){
+                leArabiaCuisines.add(cuisine);
+            }
+        }
+
+        ArrayList<Cuisine> ashaTiffinsCuisines=new ArrayList<>();
+        for (Cuisine cuisine:cuisines){
+            if(cuisine.getName().equals(Constants.CUISINE_NAME_SOUTH_INDIAN) || cuisine.getName().equals(Constants.CUISINE_NAME_CHINESE)){
+                leArabiaCuisines.add(cuisine);
+            }
+        }
+
+        Restaurant oldRao=new Restaurant(Constants.REST_NAME_OLD_RAO,454332,oldRaoCuisines);
         restaurants.add(oldRao);
-        Restaurant oyster=new Restaurant("Oyster",687709898,cuisines);
+        Restaurant oyster=new Restaurant(Constants.REST_NAME_OYSTER,687709898,oysterCuisines);
         restaurants.add(oyster);
+        Restaurant leArabia=new Restaurant(Constants.REST_NAME_LE_ARABIA,55555555,leArabiaCuisines);
+        restaurants.add(leArabia);
 
     }
 
