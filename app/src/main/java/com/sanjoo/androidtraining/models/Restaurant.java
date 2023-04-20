@@ -1,17 +1,34 @@
 package com.sanjoo.androidtraining.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
     private  String restaurantName;
     private long contactNumber;
-    private List<Cuisine> cuisines;
+    private ArrayList<Cuisine> cuisines;
+    private int restaurantImage;
 
-    public Restaurant(String restaurantName, long contactNumber, List<Cuisine> cuisines) {
+    public Restaurant(String restaurantName, long contactNumber, ArrayList<Cuisine> cuisines) {
         this.restaurantName = restaurantName;
         this.contactNumber = contactNumber;
         this.cuisines = cuisines;
     }
+
+    public int getRestaurantImage() {
+        return restaurantImage;
+    }
+
+    public void setRestaurantImage(int restaurantImage) {
+        this.restaurantImage = restaurantImage;
+    }
+
+    public Restaurant(String restaurantName, long contactNumber, int restaurantImage) {
+        this.restaurantName = restaurantName;
+        this.contactNumber = contactNumber;
+        this.restaurantImage=restaurantImage;
+    }
+
 
     public String getRestaurantName() {
         return restaurantName;
@@ -29,11 +46,11 @@ public class Restaurant {
         this.contactNumber = contactNumber;
     }
 
-    public List<Cuisine> getCuisines() {
+    public ArrayList<Cuisine> getCuisines() {
         return cuisines;
     }
 
-    public void setCuisines(List<Cuisine> cuisines) {
+    public void setCuisines(ArrayList<Cuisine> cuisines) {
         this.cuisines = cuisines;
     }
 
@@ -41,7 +58,7 @@ public class Restaurant {
         cuisines.add(cuisine);
     }
 
-    public void addCuisines(List<Cuisine> cuisines){this.cuisines.addAll(cuisines);}
+    public void addCuisines(ArrayList<Cuisine> cuisines){this.cuisines.addAll(cuisines);}
 
     @Override
     public String toString() {

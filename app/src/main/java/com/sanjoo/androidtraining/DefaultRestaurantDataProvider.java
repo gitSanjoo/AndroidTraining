@@ -51,17 +51,15 @@ public class DefaultRestaurantDataProvider {
     }
 
     public static void createDefaultCuisines(){             //return all cuisine types include ALL OF the typed menu items
-        Cuisine southIndian=new Cuisine("South Indian",new ArrayList<MenuItem>());
+        Cuisine southIndian=new Cuisine("South Indian",new ArrayList<MenuItem>(),R.drawable.south_indian);
         southIndian.addMenuItems(getAllSpecificMenuItems(CuisineType.SOUTH_INDIAN));
         cuisines.add(southIndian);
-        Cuisine italian=new Cuisine("Italian",new ArrayList<MenuItem>());
+        Cuisine italian=new Cuisine("Italian",new ArrayList<MenuItem>(),R.drawable.italian);
         italian.addMenuItems(getAllSpecificMenuItems(CuisineType.ITALIAN));
         cuisines.add(italian);
-        Cuisine southIndian1=new Cuisine("South Indian",R.drawable.south_indian);
-        cuisines.add(southIndian1);
         Cuisine italian1=new Cuisine("Italian",R.drawable.italian);
         cuisines.add(italian1);
-        Cuisine chinese=new Cuisine("chaw mine",R.drawable.chinese);
+        Cuisine chinese=new Cuisine("Chinese",R.drawable.chinese);
         cuisines.add(chinese);
 
 
@@ -86,7 +84,13 @@ public class DefaultRestaurantDataProvider {
     }
 
     public static void createRestaurants(){
-        Restaurant oldRao=new Restaurant("Old Rao",454332,cuisines);
+        ArrayList<Cuisine> oldRaoCuisines=new ArrayList<>();
+        for (Cuisine cuisine:cuisines){
+            if (cuisine.getName().equals("Chinese") || cuisine.getName().equals("Italian")){
+                oldRaoCuisines.add(cuisine);
+            }
+        }
+        Restaurant oldRao=new Restaurant("Old Rao",454332,oldRaoCuisines);
         restaurants.add(oldRao);
         Restaurant oyster=new Restaurant("Oyster",687709898,cuisines);
         restaurants.add(oyster);
