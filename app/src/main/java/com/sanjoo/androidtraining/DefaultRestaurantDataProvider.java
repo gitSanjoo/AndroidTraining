@@ -57,6 +57,12 @@ public class DefaultRestaurantDataProvider {
         Cuisine italian=new Cuisine("Italian",new ArrayList<MenuItem>());
         italian.addMenuItems(getAllSpecificMenuItems(CuisineType.ITALIAN));
         cuisines.add(italian);
+        Cuisine southIndian1=new Cuisine("South Indian",R.drawable.south_indian);
+        cuisines.add(southIndian1);
+        Cuisine italian1=new Cuisine("Italian",R.drawable.italian);
+        cuisines.add(italian1);
+        Cuisine chinese=new Cuisine("chaw mine",R.drawable.chinese);
+        cuisines.add(chinese);
 
 
 

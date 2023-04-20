@@ -8,10 +8,15 @@ public class Cuisine {
     
     private String name;
     private List<MenuItem> menuItems;
+    private int cuisineImage;
 
     public Cuisine(String name, List<MenuItem> menuItems) {
         this.name = name;
         this.menuItems = menuItems;
+    }
+    public Cuisine(String name,int cuisineImage){
+        this.name=name;
+        this.cuisineImage=cuisineImage;
     }
 
     public String getName() {
@@ -20,6 +25,14 @@ public class Cuisine {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCuisineImage() {
+        return cuisineImage;
+    }
+
+    public void setCuisineImage(int cuisineImage) {
+        this.cuisineImage = cuisineImage;
     }
 
     public List<MenuItem> getMenuItems() {

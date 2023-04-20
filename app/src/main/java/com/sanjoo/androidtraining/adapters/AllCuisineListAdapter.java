@@ -1,27 +1,26 @@
 package com.sanjoo.androidtraining.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sanjoo.androidtraining.Interfaces.CusineRecyclerViewInterface;
 import com.sanjoo.androidtraining.R;
+import com.sanjoo.androidtraining.actvities.AllMenuItemActivity;
 import com.sanjoo.androidtraining.models.Cuisine;
 
 import java.util.ArrayList;
 
-public class AllCuisineListAdapter extends RecyclerView.Adapter<AllCuisineListAdapter.AllCuisineListViewHolder> implements CusineRecyclerViewInterface {
+public class AllCuisineListAdapter extends RecyclerView.Adapter<AllCuisineListAdapter.AllCuisineListViewHolder> {
 
     private ArrayList<Cuisine> cuisine;
-    private final CusineRecyclerViewInterface cusineRecyclerViewInterface;
-    public AllCuisineListAdapter(ArrayList<Cuisine> cuisine, CusineRecyclerViewInterface cusineRecyclerViewInterface){
+    public AllCuisineListAdapter(ArrayList<Cuisine> cuisine){
         this.cuisine=cuisine;
-        this.cusineRecyclerViewInterface = cusineRecyclerViewInterface;
     }
 
     @NonNull
@@ -29,14 +28,20 @@ public class AllCuisineListAdapter extends RecyclerView.Adapter<AllCuisineListAd
     public AllCuisineListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
         View view=layoutInflater.inflate(R.layout.list_cusine,parent,false);
-        return new AllCuisineListViewHolder(view,cusineRecyclerViewInterface);
+        return new AllCuisineListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AllCuisineListViewHolder holder, int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(v.getContext(), AllMenuItemActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
         holder.cuisineNameView.setText(cuisine.get(position).getName());
-        holder.menuListButtonView.
-//        holder.menuListView.
+        holder.cuisineImageView.setImageResource(cuisine.get(position).getCuisineImage());
     }
 
     @Override
@@ -44,31 +49,16 @@ public class AllCuisineListAdapter extends RecyclerView.Adapter<AllCuisineListAd
         return cuisine.size();
     }
 
-    @Override
-    public void onItemClick(int position) {
 
-    }
 
 
     public class AllCuisineListViewHolder extends RecyclerView.ViewHolder{
         TextView cuisineNameView;
-//        RecyclerView menuListView;
-        Button menuListButtonView;
-
-        public AllCuisineListViewHolder(@NonNull View itemView,CusineRecyclerViewInterface cusineRecyclerViewInterface) {
+        ImageView cuisineImageView;
+        public AllCuisineListViewHolder(@NonNull View itemView) {
             super(itemView);
             cuisineNameView=itemView.findViewById(R.id.cuisine_name);
-            menuListButtonView=itemView.findViewById(R.id.cuisine_Button);
-//            menuListView=itemView.findViewById(R.id.menu_list);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(cusineRecyclerViewInterface!=null){
-                        int position=getAdapterPosition();
-                    }
-                }
-            });
+            cuisineImageView=itemView.findViewById(R.id.cuisine_image);
         }
     }
 }

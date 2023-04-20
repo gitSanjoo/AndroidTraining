@@ -18,6 +18,6 @@ public class AllCuisineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_cuisine);
         RecyclerView cuisineRecyclerView=findViewById(R.id.allCuisine);
         cuisineRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        cuisineRecyclerView.setAdapter(new AllCuisineListAdapter(DefaultRestaurantDataProvider.getCuisines(), cusineRecyclerViewInterface));
+        cuisineRecyclerView.setAdapter(new AllCuisineListAdapter(DefaultRestaurantDataProvider.getCuisines()));
     }
 }
