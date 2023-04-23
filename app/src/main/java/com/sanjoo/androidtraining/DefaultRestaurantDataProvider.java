@@ -111,7 +111,7 @@ public class DefaultRestaurantDataProvider {
         ArrayList<Cuisine> ashaTiffinsCuisines=new ArrayList<>();
         for (Cuisine cuisine:cuisines){
             if(cuisine.getName().equals(Constants.CUISINE_NAME_SOUTH_INDIAN) || cuisine.getName().equals(Constants.CUISINE_NAME_CHINESE)){
-                leArabiaCuisines.add(cuisine);
+                ashaTiffinsCuisines.add(cuisine);
             }
         }
 

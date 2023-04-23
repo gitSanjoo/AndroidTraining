@@ -37,6 +37,7 @@ public class AllCuisineListAdapter extends RecyclerView.Adapter<AllCuisineListAd
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(v.getContext(), AllMenuItemActivity.class);
+                intent.putParcelableArrayListExtra("bundle_key_for_menuItems",cuisine.get(position).getMenuItems());
                 v.getContext().startActivity(intent);
             }
         });

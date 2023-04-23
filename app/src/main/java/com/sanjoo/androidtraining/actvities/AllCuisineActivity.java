@@ -18,9 +18,10 @@ public class AllCuisineActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ArrayList<Cuisine> cuisines=getIntent().getParcelableArrayListExtra("bundle_key_for_cuisines");
+
         super.onCreate(savedInstanceState);
 
-        ArrayList<Cuisine> cuisines=getIntent().getParcelableArrayListExtra("bundle_key_for_cuisines");
 
         setContentView(R.layout.activity_all_cuisine);
         RecyclerView cuisineRecyclerView=findViewById(R.id.allCuisine);

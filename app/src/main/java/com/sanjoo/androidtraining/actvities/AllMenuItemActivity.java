@@ -9,16 +9,22 @@ import android.os.Bundle;
 import com.sanjoo.androidtraining.DefaultRestaurantDataProvider;
 import com.sanjoo.androidtraining.R;
 import com.sanjoo.androidtraining.adapters.AllMenuListAdapter;
+import com.sanjoo.androidtraining.models.MenuItem;
+
+import java.util.ArrayList;
 
 public class AllMenuItemActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ArrayList<MenuItem> menuItems=getIntent().getParcelableArrayListExtra("bundle_key_for_menuItems");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_menu_item);
         RecyclerView menuItemList=findViewById(R.id.allMenuItemList);
         menuItemList.setLayoutManager(new LinearLayoutManager(this));
-        menuItemList.setAdapter(new AllMenuListAdapter(DefaultRestaurantDataProvider.getMenus()));
+        menuItemList.setAdapter(new AllMenuListAdapter(menuItems));
     }
 }

@@ -7,16 +7,17 @@ import androidx.annotation.NonNull;
 
 import com.sanjoo.androidtraining.Enum.RestaurantType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cuisine implements Parcelable {
     
     private String name;
-    private List<MenuItem> menuItems;
+    private ArrayList<MenuItem> menuItems;
     private int cuisineImage;
 
 
-    public Cuisine(String name, List<MenuItem> menuItems,int cuisineImage) {
+    public Cuisine(String name, ArrayList<MenuItem> menuItems,int cuisineImage) {
         this.name = name;
         this.menuItems = menuItems;
         this.cuisineImage=cuisineImage;
@@ -56,11 +57,11 @@ public class Cuisine implements Parcelable {
         this.cuisineImage = cuisineImage;
     }
 
-    public List<MenuItem> getMenuItems() {
+    public ArrayList<MenuItem> getMenuItems() {
         return menuItems;
     }
 
-    public void setMenuItems(List<MenuItem> menuItems) {
+    public void setMenuItems(ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
 
@@ -77,6 +78,7 @@ public class Cuisine implements Parcelable {
         return "Cuisine{" +
                 "name='" + name + '\'' +
                 ", menuItems=" + menuItems +
+                ", cuisineImage=" + cuisineImage +
                 '}';
     }
 
