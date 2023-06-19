@@ -74,12 +74,15 @@ public class MenuItem implements Parcelable {
 
     @Override
     public String toString() {
-        return "MenuItem{" +
-                "itemName='" + itemName + '\'' +
-                ", itemImage=" + itemImage +
-                ", itemPrice=" + itemPrice +
-                ", cuisineType=" + cuisineType +
-                '}';
+        /*return "MenuItem{" +
+                "itemName='" + itemName +
+//                + '\''
+//                +
+//                ", itemImage=" + itemImage +
+//                ", itemPrice=" + itemPrice +
+//                ", cuisineType=" + cuisineType +
+                '}';*/
+        return itemName;
     }
 
     @Override

@@ -128,7 +128,7 @@ public class DefaultRestaurantDataProvider {
         return menus;
     }
 
-    public static ArrayList getCuisines() {
+    public static ArrayList<Cuisine> getCuisines() {
         return cuisines;
     }
     public static ArrayList getRestaurants(){

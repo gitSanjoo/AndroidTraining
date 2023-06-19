@@ -8,6 +8,7 @@ public class Restaurant {
     private long contactNumber;
     private ArrayList<Cuisine> cuisines;
     private int restaurantImage;
+    private String restaurantAddress;
 
     public Restaurant(String restaurantName, long contactNumber, ArrayList<Cuisine> cuisines) {
         this.restaurantName = restaurantName;
@@ -23,10 +24,11 @@ public class Restaurant {
         this.restaurantImage = restaurantImage;
     }
 
-    public Restaurant(String restaurantName, long contactNumber, int restaurantImage) {
+    public Restaurant(String restaurantName, long contactNumber, int restaurantImage,String restaurantAddress) {
         this.restaurantName = restaurantName;
         this.contactNumber = contactNumber;
         this.restaurantImage=restaurantImage;
+        this.restaurantAddress=restaurantAddress;
     }
 
 
@@ -63,9 +65,9 @@ public class Restaurant {
     @Override
     public String toString() {
         return "Restaurant{" +
-                "restaurantName='" + restaurantName + '\'' +
-                ", contactNumber=" + contactNumber +
-                ", cuisines=" + cuisines +
+//                "restaurantName='" + restaurantName + '\'' +
+//                ", contactNumber=" + contactNumber +
+//                ", cuisines=" + cuisines +
                 '}';
     }
 }
