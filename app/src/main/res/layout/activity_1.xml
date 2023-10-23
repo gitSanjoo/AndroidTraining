@@ -36,12 +36,21 @@
     />
 <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/btnForActivity_1to2"
         app:layout_constraintTop_toBottomOf="@+id/btnF1"
         />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="text for testing"
+    android:textColor="@color/black"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/btnForActivity_1to2"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
