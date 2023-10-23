@@ -9,6 +9,7 @@ import com.sanjoo.androidtraining.databinding.Activity1Binding
 
 class Activity1 : AppCompatActivity(),CommunicatorForF1F2 {
     lateinit var binding:Activity1Binding
+//    lateinit var binding:Activity1Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
          binding = Activity1Binding.inflate(layoutInflater)
@@ -40,6 +41,12 @@ class Activity1 : AppCompatActivity(),CommunicatorForF1F2 {
     override fun passData(editTextInput: String) {
         val bundle=Bundle()
         bundle.putString("msg",editTextInput)
+        val trans=this.supportFragmentManager.beginTransaction()
+         val f2=FragmentTwo()
+        f2.arguments=bundle
+
+        trans.replace(R.id.fragment_container,f2)
+        trans.commit()
     }
 
 }
